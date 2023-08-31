@@ -1,0 +1,64 @@
+{
+  "name": "martin-ro/laravel-instantly",
+  "description": "Client for Laravel that allows you to interact with the Instantly.ai API",
+  "keywords": ["php", "instantly", "sdk", "api", "client"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Martin Rohrlack",
+      "email": "martinroph@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^10.0",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.10.3",
+    "pestphp/pest": "^2.16.0",
+    "phpstan/phpstan": "^1.10.25"
+  },
+  "autoload": {
+    "psr-4": {
+      "MartinRo\\Instantly\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MartinRo\\Instantly\\InstantlyServiceProvider"
+      ],
+      "aliases": {
+        "Instantly": "MartinRo\\Instantly\\Facades\\Instantly"
+      }
+    }
+  },
+  "scripts": {
+    "lint": "pint -v",
+    "test:lint": "pint --test -v",
+    "test:types": "phpstan analyse --ansi",
+    "test:type-coverage": "pest --type-coverage --min=100",
+    "test:unit": "pest --colors=always",
+    "test": [
+      "@test:lint",
+      "@test:types",
+      "@test:type-coverage",
+      "@test:unit"
+    ]
+  }
+}
