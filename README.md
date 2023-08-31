@@ -10,7 +10,7 @@ composer require martin-ro/laravel-instantly
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="MartinRo\Instantly\ServiceProvider"
+php artisan vendor:publish --provider="MartinRo\Instantly\InstantlyServiceProvider"
 ```
 This is the contents of the published config file:
 ```bash
